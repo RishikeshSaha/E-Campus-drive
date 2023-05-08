@@ -1,0 +1,139 @@
+<div class="container-fluid">
+    <div id="fee-mgmt">
+        <div class="container">
+            
+        </div>
+    </div>
+    <br>
+    <div class="row" id="card-menu">
+      	<div class="col-md-12">
+            <table class="table table-striped table-condensed">
+                  <thead>
+                  <tr>
+                      <th>Student name</th>
+                      <th>Enrollment no.</th>
+                      <th>Semister</th>
+                      <th>Marks</th>
+                      <th>Status</th>                                          
+                  </tr>
+              </thead>   
+              <tbody>
+                <tr>
+                    <td>Rishikesh Saha</td>
+                    <td>0827CO191047</td>
+                    <td>8 sem</td>
+                    <td>89%</td>
+                    <td><span class="label label-success">Pass</span>
+                    </td>                                       
+                </tr>
+                <tr>
+                    <td>shrishti vyas</td>
+                    <td></td>
+                    <td>6 sem</td>
+                    <td>63%</td>
+                    <td><span class="label label-important">Pass</span></td>                                       
+                </tr>
+                <tr>
+                    <td>jay pal</td>
+                    <td>0827CO191027</td>
+                    <td>8 sem</td>
+                    <td>35%</td>
+                    <td><span class="label">Fail</span></td>                                        
+                </tr>
+                <tr>
+                    <td>anushka </td>
+                    <td></td>
+                    <td>6 sem</td>
+                    <td>29%</td>
+                    <td><span class="label label-warning">Fail</span></td>                                       
+                </tr>
+                <tr>
+                    <td>gaurav shardul</td>
+                    <td>0827CO191017</td>
+                    <td>8 sem</td>
+                    <td>89%</td>
+                    <td><span class="label label-success">Pass</span></td>                                        
+                </tr>      
+                <tr>
+                    <td>ishika shroff shardul</td>
+                    <td></td>
+                    <td>6 sem</td>
+                    <td>89%</td>
+                    <td><span class="label label-success">Pass</span></td>                                        
+                </tr>
+                 <tr>
+                    <td>muskan soni</td>
+                    <td></td>
+                    <td>6 sem</td>
+                    <td>89%</td>
+                    <td><span class="label label-success">Pass</span></td>                                        
+                </tr>
+                 <tr>
+                    <td>ayush dubey</td>
+                    <td></td>
+                    <td>6 sem</td>
+                    <td>89%</td>
+                    <td><span class="label label-success">Pass</span></td>                                        
+                </tr>
+                 <tr>
+                    <td>harshad lande</td>
+                    <td></td>
+                    <td>6 sem</td>
+                    <td>89%</td>
+                    <td><span class="label label-success">Pass</span></td>                                        
+                </tr>
+                 <tr>
+                    <td>rishabh patel</td>
+                    <td></td>
+                    <td>6 sem</td>
+                    <td>89%</td>
+                    <td><span class="label label-success">Pass</span></td>                                        
+                </tr>
+                 <tr>
+                    <td>govind gurjar</td>
+                    <td></td>
+                    <td>6 sem</td>
+                    <td>89%</td>
+                    <td><span class="label label-success">Pass</span></td>                                        
+                </tr>
+                 <tr>
+                    <td>parth vyas</td>
+                    <td></td>
+                    <td>6 sem</td>
+                    <td>89%</td>
+                    <td><span class="label label-success">Pass</span></td>                                        
+                </tr>                                  
+              </tbody>
+            </table>
+            </div>
+    
+    </div>
+</div>
+
+<a href="/fee-management/pay" class="float">
+    <i class="fa fa-plus my-float"></i>
+</a>
+
+<script>
+    function getCourses(dept) {
+
+        const URL = `http://localhost:3000/courses/getCourse/${dept}`;
+
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                let response = JSON.parse(xhttp.responseText);
+                console.log(response);
+                var output = '';
+
+                for (let i = 0; i < response.length; i++) {
+                    output += `<option value="${response[i].courseName}">${response[i].courseName}</option>`;
+                }
+                document.getElementById('courses').innerHTML = output;
+            }
+        };
+
+        xhttp.open("GET", URL, true);
+        xhttp.send();
+    }
+</script>

@@ -1,0 +1,14 @@
+<div class="container-fluid" id="make-payment">
+    <form class="form-fee-mgmt" action="" method="POST">
+        {{#each errors}}
+        <div class="alert alert-danger custom-alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="margin-top:0px;">
+                <span aria-hidden="true" style="color:white;">&times;</span>
+            </button>
+            <div class="media">
+                <i class="fa fa-exclamation-triangle fa-2x" aria-hidden="true"></i>
+                <div class="media-body ml-4 mt-1">
+                    <strong>{{text}}.</strong>&nbsp;&nbsp;Change a few things up and try submitting again.
+                </div>
+            </div>
+        </div>
